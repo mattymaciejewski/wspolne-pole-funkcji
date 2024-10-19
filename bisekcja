@@ -1,0 +1,41 @@
+#include<iostream>
+#include <cmath>
+#include<iomanip>
+using namespace std;
+
+double funkcja(double x)
+{
+  return pow(x,2) - sin(x);
+}
+
+double bisekcja(double a, double b, double epsilon)
+{
+  if(funkcja(a)==0.0)return a;
+  if(funkcja(b)==0.0)return b;
+
+  double srodek;
+
+  while(b-a > epsilon)
+  {
+    srodek = (a+b)/2;
+
+    if(funkcja(srodek) == 0.0)
+      return srodek;
+
+    if(funkcja(a)*funkcja(srodek)<0) 
+      b = srodek;
+    else
+      a = srodek;
+  }
+  return (a+b)/2;
+}
+
+int main()
+{
+  double a = 0.5, b = 2, epsilon = 0.00001;
+
+  cout<<"Znalezione miejsce zerowe wynosi: ";
+  cout<<fixed<<setprecision(5)<<bisekcja(a, b, epsilon);
+
+  return 0;
+}
