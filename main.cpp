@@ -82,23 +82,3 @@ int main() {
   return 0;
   
 }
-int main() {
-  double dx = 0.001;
-  double a = 0;
-  double pole = 0;
-  double a_bisekcja = 0.5;
-  double b_bisekcja = 2;
-  double epsilon = 0.00001;
-  double b = bisekcja(a_bisekcja, b_bisekcja, epsilon);
-
-  for(double x = a; x<=b; x+=dx) {
-
-    pole += fabs(funkcja2(x) - funkcja1(x)) * dx;
-
-  }
-  
-  cout << "Wspolne pole obu funkcji wynosi: " << fixed << setprecision(4) << pole << endl;
-
-  return 0;
-  
-}
